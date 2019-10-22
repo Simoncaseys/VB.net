@@ -1,0 +1,8 @@
+ Public Sub DeleteFile()
+        Dim FileToDelete As String
+
+        FileToDelete = Address of where the fil you want to delete
+
+        System.IO.File.Delete(FileToDelete)
+
+    End Sub
