@@ -1,0 +1,13 @@
+Public Sub copyfile()
+
+
+        FileToCopy = Address of where the file is you want to copy from
+        NewCopy = Address of where you wan to copy file to
+
+        If System.IO.File.Exists(FileToCopy) = True Then
+
+            System.IO.File.Copy(FileToCopy, NewCopy, True)
+
+        End If
+
+    End Sub
