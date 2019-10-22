@@ -1,0 +1,25 @@
+    Public Sub dbConnection()
+    'serverName.Select = Servername of where database is
+        Dim strConn As String = "Data Source=" + serverName.SelectedValue + ";Initial Catalog=#Name of database you want to connect to;Integrated Security=True"
+        sqlCon = New SqlConnection(strConn)
+
+
+        Using (sqlCon)
+
+            Dim sqlComm As New SqlCommand
+            'Set Time out to unlimited
+            sqlComm.CommandTimeout = 0 
+            sqlComm.Connection = sqlCon
+
+            sqlCon.Open()
+
+            sqlComm.CommandText = "#SPNameGoesHere"
+            sqlComm.CommandType = CommandType.StoredProcedure
+            sqlComm.Parameters.AddWithValue("#NamesOfSPVerable", #ValueTobePassed)
+            sqlComm.Parameters.AddWithValue("#NamesOfSPVerable", #ValueTobePassed)
+
+
+            sqlComm.ExecuteNonQuery()
+
+        End Using
+    End Sub
